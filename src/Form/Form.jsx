@@ -3,7 +3,7 @@ import { useState } from 'react';
 import 'bulma/css/bulma.min.css';
 
 export const Form = () => {
-  const token = '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'
+  const token = 'ghp_token' // insert your token here to interact with Github API
 
   const octokit = new Octokit({
     auth: token
@@ -16,8 +16,8 @@ export const Form = () => {
     event.preventDefault();
 
     await octokit.request('POST /repos/{owner}/{repo}/issues', {
-      owner: 'AlexanderKolomiiets',
-      repo: 'GitHub-Issue-Reporter',
+      owner: 'AlexanderKolomiiets', // insert an owner here
+      repo: 'GitHub-Issue-Reporter', // insert your repo here
       title,
       body: description,
       labels: [
